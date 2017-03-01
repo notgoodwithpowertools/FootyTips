@@ -55,10 +55,10 @@ export class TeamList extends React.Component {
 //module.exports = connect(
 export default connect(
   (state) => {
-    /*return {
-      todos: state.todos
-    };*/
-    return state;
+    return {
+      teams: state.teams
+    };
+    //return state;
   }
 
 )(TeamList);

@@ -21,6 +21,29 @@ export var authReducer = (state = '', action) => {
 
 };
 
+export var roundNumReducer = (state = 'Round 3', action) => {
+
+  switch (action.type) {
+    case 'INCREMENT_ROUND_NUM':
+      console.log("Increment round_num...");
+      return {
+        round_num: round_num + 1
+      }
+    case 'DECREMENT_ROUND_NUM':
+      console.log("Decrement round_num...");
+      return {
+        round_num: round_num - 1
+    }
+    case 'SET_ROUND_NUM':
+      console.log("Setting round_num...", action.round_num);
+      return action.round_num
+
+    default:
+      return state;
+  }
+
+};
+
 export var searchTextReducer = (state ='', action) => {
 
   switch (action.type) {
@@ -87,9 +110,6 @@ export var gamesReducer = (state = [], action) => {
       return state;
   }
 };
-
-
-
 
 
 //todosReducer

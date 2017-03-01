@@ -45,7 +45,7 @@ admin.auth().createUser({
     console.log("Successfully created new user:", userRecord.email);
     console.log("Successfully created new user:", userRecord.isAnonymous);
     console.log("Successfully created new user:", userRecord.emailVerified);
-    userRecord.sendEmailVerification()
+    //userRecord.sendEmailVerification()
 })
 .catch(function(error) {
     console.log("Error creating new user:", error);
@@ -209,40 +209,59 @@ teamsRef.set(teams, function(error) {
 var games = [
   {
     "id": 0,
-    'round_num': 1,
+    'round_num': 'Round 1',
     "home_team_id": 0,
     "away_team_id": 1,
     "venue_id": 1,
-    "time": "null",
-    "result_team_id": "null"
+    "time": null,
+    "result_team_id": null
   },
   {
     "id": 1,
-    'round_num': 1,
+    'round_num': 'Round 1',
     "home_team_id": 2,
     "away_team_id": 3,
     "venue_id": 2,
-    "time": "null",
+    "time": null,
     "result_team_id": 3
   },
   {
     "id": 11,
-    'round_num': 2,
+    'round_num': 'Round 2',
     "home_team_id": 2,
     "away_team_id": 3,
-    "venue_team_id": 2,
-    "time": "null",
+    "venue_id": 2,
+    "time": null,
     "result_team_id": 3
   },
   {
+    "id": 12,
+    'round_num': 'Round 3',
+    "home_team_id": 3,
+    "away_team_id": 4,
+    "venue_id": 3,
+    "time": null,
+    "result_team_id": 4
+  },
+  {
     "id": 26,
-    'round_num': 3,
-    "home_team_id": 4,
+    'round_num': 'Round 3',
+    "home_team_id": 6,
     "away_team_id": 5,
     "venue_id": 3,
-    "time": "null",
+    "time": null,
+    "result_team_id": 5
+  },
+  {
+    "id": 56,
+    'round_num': 'Grand Final',
+    "home_team_id": 4,
+    "away_team_id": 5,
+    "venue_id": 1,
+    "time": null,
     "result_team_id": 5
   }
+
 ];
 
 var gamesRef = db.ref('/games');
@@ -287,6 +306,13 @@ var tips = [
     "game_id": 11,
     "tip_team_id": 2,
     "tip_result": 0
+  },
+  {
+    "tip_id": 5,
+    'user_id': 2,
+    "game_id": 26,
+    "tip_team_id": 5,
+    "tip_result": 1
   }
 ];
 

@@ -3,7 +3,7 @@ import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
 //var {searchTextReducer, showCompletedReducer, todosReducer} = require('../reducers/reducers.jsx');
-import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, teamsReducer, gamesReducer} from '../reducers/reducers.jsx';
+import {searchTextReducer, showCompletedReducer, todosReducer, authReducer, teamsReducer, gamesReducer, roundNumReducer} from '../reducers/reducers.jsx';
 
 export var configure = (initialState={}) => {
   var reducers = redux.combineReducers({
@@ -12,7 +12,8 @@ export var configure = (initialState={}) => {
     todos: todosReducer,
     auth: authReducer,
     teams: teamsReducer,
-    games: gamesReducer
+    games: gamesReducer,
+    round_num: roundNumReducer
   });
 
   //console.log("initialState:", initialState);

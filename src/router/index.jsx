@@ -12,7 +12,8 @@ import ComponentOne from '../components/ClassComponent1.jsx';
 import ComponentTwo from '../components/ClassComponent2.jsx';
 
 //import Teams from '../components/TeamList.jsx';
-import GameList from '../components/GameList.jsx';
+//import GameList from '../components/GameList.jsx';
+import GamePage from '../components/GamePage.jsx';
 
 
 
@@ -61,11 +62,10 @@ export default (
     <Route path="/" component={Main} onEnter={requireLogin}>
       <IndexRoute component={TodoApp} onEnter={redirectIfLoggedIn}/>
       <Route path="teams" component={TeamList} onEnter={requireLogin}/>
-      <Route path="games" component={GameList} onEnter={requireLogin}/>
+      <Route path="games" component={GamePage} onEnter={requireLogin}/>
       <Route path="todos" component={TodoApp} onEnter={requireLogin}/>
       <Route path="component1" component={ComponentOne} onEnter={requireLogin}/>
       <Route path="component2" component={ComponentTwo} onEnter={requireLogin}/>
-
     </Route>
 
 

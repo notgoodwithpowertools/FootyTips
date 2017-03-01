@@ -1,12 +1,35 @@
 import firebase, {firebaseRef, githubProvider} from '../api/firebase/index.js';
 import moment from 'moment';
 
+
+export var incRoundNum = () => {
+  return {
+    type: 'INCREMENT_ROUND_NUM'
+  };
+};
+
+export var decRoundNum = () => {
+  return {
+    type: 'DECREMENT_ROUND_NUM'
+  };
+};
+
+export var setRoundNum = (round_num) => {
+  console.log("setRoundNum:", typeof(round_num));
+  return {
+    type: 'SET_ROUND_NUM',
+    round_num: round_num
+  };
+};
+
+
 export var setSearchText = (searchText) => {
   return {
     type: 'SET_SEARCH_TEXT',
     searchText: searchText
   };
 };
+
 
 export var addTodo = (todo) => {
   return {
@@ -98,9 +121,6 @@ export var startAddGames = () => {
 };
 
 
-
-
-
 // asynch actions
 export var startAddTodo = (text) => {
   return (dispatch, getState) => {
@@ -135,6 +155,7 @@ export var toggleShowCompleted = () => {
   }
 };
 
+
 export var setShowCompleted = (showCompletedState) => {
   return {
     type: 'SET_SHOW_COMPLETED',
@@ -158,6 +179,7 @@ export var updateTodo = (id, updates) => {
   }
 };
 
+
 export var startToggleTodo = (id, completed) => {
   return (dispatch, getState) => {
     //var todoRef = firebaseRef.child('todos/' + id);
@@ -179,6 +201,7 @@ export var startToggleTodo = (id, completed) => {
   };
 };
 
+
 export var login = (uid) => {
   return {
     type: 'LOGIN',
@@ -186,11 +209,13 @@ export var login = (uid) => {
   };
 };
 
+
 export var logout = () => {
   return {
     type: 'LOGOUT'
   };
 };
+
 
 export var startGitHubLogin = () => {
   return (dispatch, getState) => {
@@ -216,6 +241,7 @@ export var startEmailLogin = (email, password) => {
     });
   };
 };
+
 
 export var registerUser = (email, password) => {
   return (dispatch, getState) => {
@@ -271,10 +297,6 @@ export function saveUser (user) {
     .then(() => user)
 }
 */
-
-
-
-
 
 export var startLogout = () => {
   return (dispatch, getState) => {
