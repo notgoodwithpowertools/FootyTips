@@ -18,7 +18,7 @@ export class Team extends React.Component {
     return (
       <div>
         <p>Name:{name}, Nickname:{nickname}, Short Name:{sname}</p>
-        <img src={imageFile} />
+        <img src={imageFile}/>
 
       </div>
     )

@@ -36,7 +36,7 @@ export var roundNumReducer = (state = 'Round 3', action) => {
     }
     case 'SET_ROUND_NUM':
       console.log("Setting round_num...", action.round_num);
-      return action.round_num
+      return action.round_num;
 
     default:
       return state;

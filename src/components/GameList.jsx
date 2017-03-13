@@ -2,8 +2,8 @@ var React = require('react');
 var {connect} = require('react-redux');
 
 //import Game from './Game.jsx';
-import GameTableRow from './GameTableRow.jsx';
-import GameTableResultRow from './GameTableResultRow.jsx';
+import GameRow from './GameRow.jsx';
+//import GameTableResultRow from './GameTableResultRow.jsx';
 //var TodoAPI = require('../api/TodoAPI.jsx');
 import FTipsAPI from '../api/FTipsAPI.jsx';
 
@@ -29,17 +29,17 @@ export class GameList extends React.Component {
       //value: round_num
     };
     */
-    this.getTableRows = this.getTableRows.bind(this);
+    //this.getTableRows = this.getTableRows.bind(this);
     //this.handleChange = this.handleChange.bind(this);
 
   }
 
-  getTableRows (filterGames) {
+  getGameRows (filterGames) {
     //return FTipsAPI.filterGames(games, round).map( (game) => {
     return filterGames.map( (game) => {
       console.log("filtered game.id:", game.id);
       return (
-            <GameTableRow key={game.id} {...game} />
+            <GameRow key={game.id} {...game} />
             //<GameTableResultRow key={`Result${game.id}`} {...game} />
 
       )
@@ -48,6 +48,13 @@ export class GameList extends React.Component {
 
   render () {
 
+   var myStyle = {
+
+     fill: 'blue',
+     strokeWidth:10,
+     stroke: 'green'
+
+   }
     var {round, games} = this.props;
     console.log("GamesList round:", round);
 
@@ -57,25 +64,55 @@ export class GameList extends React.Component {
       var filterGames = FTipsAPI.filterGames(games, round);
       if (filterGames.length === 0) {
         return (
-          <p className="container__message">No games</p>
+          <div>
+            <div>
+              <p className="container__message">No games</p>
+            </div>
+            <div>
+              <svg width="400" height="100">
+                <rect width="400" height="100"
+                  style={myStyle} />
+                Sorry, your browser does not support inline SVG.
+              </svg>
+            </div>
+          </div>
+
         )
       }
-
+      return (<div>{this.getGameRows(filterGames)}</div>);
+/*
       return (
           <table>
             <tbody>
-              {this.getTableRows(filterGames)}
+              {this.getGameRows(filterGames)}
             </tbody>
           </table>
       )
-
+*/
+      /*
+      <div className="flex-container" align="center">
+        <div className="flex-item"><img style='width:100%; max-width: 90px;' src="/public/images/ess2.jpg" /></div>
+        <div className="flex-item" style="line-height: 150%">Etihad<br>Sep 23<br>2:30pm</div>
+        <div className="flex-item"><img style='width:100%; max-width: 90px;' src="/public/images/car2.jpg"/></div>
+      </div>
+      */
+      /*
+      return (
+        <div className="flex-container">
+          <div className="flex-item"><img src="/images/ess2.jpg" /></div>
+          <div className="flex-item">Etihad</div>
+          <div className="flex-item"><img src="/images/car2.jpg"/></div>
+        </div>
+      )
+      */
     }
 
-    /*return (
+    return (
       <div>
         {renderGames()}
       </div>
-    )*/
+    )
+    /*
     return (
       <div className="row">
         <div className="small-4 columns">4 columns</div>
@@ -83,6 +120,7 @@ export class GameList extends React.Component {
         <div className="columns">Whatever's left!</div>
       </div>
     )
+    */
 
 
   }

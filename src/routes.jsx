@@ -7,6 +7,7 @@ var ReactRouter = require('react-router');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 var Main = require('./components/Main.jsx');
+var LandingPage = require('./components/LandingPage.jsx');
 var Component1 = require('./components/Component1.jsx')
 var Component2 = require('./components/Component2.jsx')
 
@@ -17,6 +18,9 @@ var Routes = (
        <IndexRoute component={Component1}></IndexRoute>
 
      </Route>
+     <Route path="/login" component={Login} onEnter={redirectIfLoggedIn}>
+     </Route>
+
   </Router>
 );
 

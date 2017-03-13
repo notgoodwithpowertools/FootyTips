@@ -1,10 +1,14 @@
 @import "base/variables";
-@import "../components/nav";
+@import "components/nav";
 @import "components/page-title";
 @import "components/container";
 @import "components/todo";
 @import "components/page-actions";
 @import "components/callout-auth";
+
+@import "components/paginator";
+@import "components/gamelist";
+@import "components/landingPage";
 
 $space-large: 3.5rem;
 $title-color: blue;;
